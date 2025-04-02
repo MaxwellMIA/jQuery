@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>.animte grow</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <style>
+        div {
+            height:50px;
+            width: 50px;
+            border:solid 1px rgb(201, 145, 145);
+            background-color: rgb(244, 43, 43);
+            position: relative;
+        }
+
+        #grow {
+            margin-bottom: 5px;
+            margin-left: 45%;
+        }
+
+
+        #box2 {
+            margin-left: 40%;
+            margin-top: 30%;
+            height: 50px;
+            width: 50px;
+            border: solid 1px rgb(213, 128, 128);
+            background-color: rgb(54, 18, 18);
+        }
+
+        .btn {
+            margin-bottom: 5px;
+            margin-left: 15%;
+        }
+
+    </style>
+</head>
+<body>
+    <button id="grow">Grow</button>
+    <div></div>
+
+
+    <button id="animate">Initaiate animate</button>
+
+    <div id="box"></div>
+
+
+    <button id="hide" class="btn">Hide</button>
+    <button id="show" class="btn">Show</button>
+    <button id="toggle" class="btn">Toggle</button>
+    <div id="box2"></div>
+    <script>
+        $("#grow").click(function() {
+            $("div").animate({height: "300px", width: "300px"}, "slow");
+        });
+
+        $("#animate").click(function() {
+            // Animate occur 1 after another are queued
+            // Amimations will occur 1 by 1
+
+            $("#box").animate({height: "300px", width: "300px"}, "slow");
+            $("#box").animate({height: "50px", width: "50px"}, "slow");
+
+            $("#box").animate({left: "400px"}, "slow");
+            $("#box").animate({left: "0px"}, "slow");
+        });
+
+        // make 3 click animations
+
+        $("#hide").click(function() {
+            $("#box2").hide("slow")
+        });
+
+        $("#show").click(function() {
+            $("#box2").show("slow")
+        });
+
+        $("#toggle").click(function() {
+            $("#box2").toggle("slow")
+        });
+    </script>
+</body>
+</html>
